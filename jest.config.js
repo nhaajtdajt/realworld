@@ -1,3 +1,10 @@
+const minimumCoverage = {
+  branches: 80,
+  functions: 80,
+  lines: 80,
+  statements: 80
+};
+
 module.exports = {
   testEnvironment: 'node',
   testTimeout: 20000,
@@ -11,12 +18,8 @@ module.exports = {
     'json-summary'
   ],
   coverageThreshold: {
-    global: {
-      branches: 80,
-      functions: 80,
-      lines: 80,
-      statements: 80
-    }
+    global: minimumCoverage,
+    './lib.js': minimumCoverage
   },
   reporters: [
     'default',
