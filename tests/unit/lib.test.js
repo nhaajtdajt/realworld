@@ -178,4 +178,16 @@ describe('Unit Tests: Helpers & Utilities (lib.js)', () => {
       config.isDemo = originalIsDemo;
     });
   });
+
+  describe('formatArticleSlug', () => {
+    test('should trim, lowercase, and replace whitespace with hyphens', () => {
+      expect(lib.formatArticleSlug('  Hello   World From HCMUS  '))
+        .toBe('hello-world-from-hcmus');
+    });
+
+    test('should return an empty string for falsy input', () => {
+      expect(lib.formatArticleSlug('')).toBe('');
+      expect(lib.formatArticleSlug(null)).toBe('');
+    });
+  });
 });
